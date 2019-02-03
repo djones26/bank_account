@@ -1,5 +1,8 @@
 #ifndef BANK_ACCOUNT_HPP
 #define BANK_ACCOUNT_HPP
+#include <iostream>
+using namespace std;
+
 class BankAccount
 {
 public:
@@ -9,6 +12,7 @@ public:
     virtual void withdraw (double amount);
     virtual void calcInt();
     virtual void monthlyProc();
+    friend std::ostream &operator << (std::ostream&, const BankAccount&);
 private:
     double balance;
     int num_deposits_month;

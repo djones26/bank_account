@@ -1,7 +1,10 @@
 #include "BankAccount.hpp"
+#include <iostream>
+#include <iomanip>
+using namespace std;
 
 BankAccount::BankAccount(double balance_in,
-                         double annual_rate_in)
+        double annual_rate_in)
 {
     balance = balance_in;
     annual_rate = annual_rate_in;
@@ -33,4 +36,15 @@ void BankAccount::monthlyProc()
     num_deposits_month = 0;
     num_withdrawals_month = 0;
     service_charge = 0;
+}
+
+ostream &operator << (ostream &os, const BankAccount& ba)
+{
+    os << "***Data for this month***\n";
+    os << "Number of deposits: " << ba.num_deposits_month << endl;
+    os << "Number of withdrawals: " << ba.num_withdrawals_month << endl;
+    os << fixed << showpoint << setprecision(2);
+    os << "Current balance: $" << ba.balance << endl;
+    os << "Service charges: $" << ba.service_charge << endl;
+    return os; 
 }
