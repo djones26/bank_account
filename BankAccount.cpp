@@ -6,6 +6,7 @@ using namespace std;
 BankAccount::BankAccount(double balance_in,
         double annual_rate_in)
 {
+    balance = balance_in;
     annual_rate = annual_rate_in;
 }
 
